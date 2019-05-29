@@ -4,6 +4,12 @@ import java.util.Map;
 /**
  * Check rules on UMD passwords, as described at
  * https://identity.umd.edu/password/changepassword
+ * import java.util.List;
+import java.util.Map;
+
+/**
+ * Check rules on UMD passwords, as described at
+ * https://identity.umd.edu/password/changepassword
  * 
  * A password must be at least 8 and no more than 32 characters in length.
  * A password must contain at least one character from each of the following
