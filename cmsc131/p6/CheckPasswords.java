@@ -5,33 +5,40 @@ import java.util.Map;
  * Check rules on UMD passwords, as described at
  * https://identity.umd.edu/password/changepassword
  * 
- * <ul>
- * <li>A password must be at least 8 and no more than 32 characters in length.
- * <li>A password must contain at least one character from each of the following
+ * A password must be at least 8 and no more than 32 characters in length.
+ * A password must contain at least one character from each of the following
  * sets:
- * <ul>
- * <li>Uppercase alphabet (A-Z)
- * <li>Lowercase alphabet (a-z)
- * <li>Number (0-9) and special characters (such as # @ $ & among others)
- * </ul>
- * <li>A password may not begin or end with the space character.
- * <li>A password may not contain more than two consecutive identical
+ * 
+ * Uppercase alphabet (A-Z)
+ * Lowercase alphabet (a-z)
+ * Number (0-9) and special characters (such as # @ $ & among others
+ * import java.util.List;
+import java.util.Map;
+
+/**
+ * Check rules on UMD passwords, as described at
+ * https://identity.umd.edu/password/changepassword
+ * 
+ * A password must be at least 8 and no more than 32 characters in length.
+ * A password must contain at least one character from each of the following
+ * sets:
+ * 
+ * Uppercase alphabet (A-Z)
+ * Lowercase alphabet (a-z)
+ * Number (0-9) and special characters (such as # @ $ & among others
+ * 
+ * A password may not begin or end with the space character.
+ * A password may not contain more than two consecutive identical
  * characters.
- * <li>A password may not be (or be a variation of ) a dictionary word in
+ * A password may not be (or be a variation of ) a dictionary word in
  * English or many other languages. This includes making simple substitutions of
  * digits or punctuation that resemble alphabetic characters (such as replacing
  * the letter S in a common word with the $...
- * <li>Passwords should not contain: carriage return, linefeed, /, \, or a
+ * Passwords should not contain: carriage return, linefeed, /, \, or a
  * trailing * symbol).
- * </ul>
- *
  */
 public class CheckPasswords {
-
-	/**
-	 * Count the number of uppercase letters in password; can assume only ASCII
-	 * characters
-	 */
+	/** Count the number of uppercase letters in password; can assume only ASCII characters */
 	static int countUppercaseLetters(String password) {
 		int upperCase = 0;
 
@@ -40,14 +47,10 @@ public class CheckPasswords {
 				upperCase++;
 			}
 		}
-
 		return upperCase;
 	}
 
-	/**
-	 * Count the number of lowercase letters in password; can assume only ASCII
-	 * characters
-	 */
+	/** Count the number of lowercase letters in password; can assume only ASCII characters */
 	static int countLowercaseLetters(String password) {
 		int lowerCase = 0;
 
@@ -56,15 +59,10 @@ public class CheckPasswords {
 				lowerCase++;
 			}
 		}
-
 		return lowerCase;
 	}
 
-	/**
-	 * Count the longest sequences of consecutive identical characters; can assume
-	 * only ASCII characters
-	 */
-
+	/** Count the longest sequences of consecutive identical characters; can assume only ASCII characters */
 	static int longestConsecutiveIdenticalCharacters(String password) {
 		int run = 1;
 		int longestRun = 0;
@@ -100,7 +98,6 @@ public class CheckPasswords {
 		if (password.length() < word.length() || password.length() >= word.length() + 5) {
 			return false;
 		}
-		
 		for (int i = 0; i < password.length() - word.length() + 1; i++) {
 			if (password.substring(i, i + word.length()).equals(word)) {
 				return true;
@@ -127,7 +124,6 @@ public class CheckPasswords {
 			
 			for (int x = 0; x < password.length(); x++) {
 				char c = password.charAt(x);
-				
 				
 				// Check for lower case letters 
 				if (Character.isLowerCase(c)) {
